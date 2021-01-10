@@ -8,7 +8,7 @@
         h = $("<div>").appendTo("body");
         urls.forEach(function(v){
         	$("<img>", {
-        		      		 crossorigin:"anonymous"
+        		      		 crossorigin:"anonymous",
         		src: v
         	}).appendTo(h)
         });
