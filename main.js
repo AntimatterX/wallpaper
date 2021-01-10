@@ -5,7 +5,10 @@
         h = $("<div>").css({
             display: "inline-block",
             position: "absolute",
-            backgroundColor: "rgba(255, 255, 255, 0.75)"
+            color: "white",
+            backgroundColor: "rgba(0, 0, 0, 0.75)",
+            padding: "1em",
+            borderRadius: "25px"
         }).appendTo("body"),
         urls = [
             "YXxxhlg.jpg",
@@ -64,6 +67,8 @@
         h.on("mouseup", function() {
             if (!isMoving) return;
             isMoving = false;
+        }).children().on("mousedown", function(e) {
+            e.stopPropagation();
         });
     })();
     //--------------------------------------------------
