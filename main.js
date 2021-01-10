@@ -1,7 +1,6 @@
 (function() {
     'use strict';
     //--------------------------------------------------
-    $("body script").attr( "crossorigin","anonymous");
     $.get("https://antimatterx.github.io/wallpaper/src/wallpapers.txt").done(function(d) {
         var urls = d.split("\n").filter(function(v){
         	return v.length > 0;
