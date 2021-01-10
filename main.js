@@ -13,7 +13,7 @@
         	max: urls.length - 1,
         	change: function(idx){
         		amx.setWallpaper(urls[idx]);
-        		alert($("body").css("background-color"));
+        		alert($("body").css("background-image"));
         	}
         });
     });
