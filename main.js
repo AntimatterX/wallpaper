@@ -1,27 +1,35 @@
 (function() {
     'use strict';
     //--------------------------------------------------
-    $.get("https://antimatterx.github.io/wallpaper/src/wallpapers.txt").done(function(d) {
-        var urls = d.split("\n").filter(function(v){
-        	return v.length > 0;
-        }),
-        h = $("<div>").appendTo("body");
-       /* urls.forEach(function(v){
-        	$("<img>", {
-        		      		 crossorigin:"anonymous",
-        		src: v
-        	}).appendTo(h)
-        });*/
-        amx.addInputRange(h[0], {
-        	title: "壁紙のインデックス",
-        	value: 0,
-        	min: 0,
-        	max: urls.length - 1,
-        	change: function(idx){
-        		amx.setWallpaper(urls[idx]);
-        		//alert($("body").css("background-image"));
-        	}
-        });
+    var si,
+        urls = [
+            "YXxxhlg.jpg",
+            "WjedZgv.jpg",
+            "FHzxqVM.jpg",
+            "TN8nKSw.jpg",
+            "WdTfgQT.jpg",
+            "nlVt8Ri.jpg",
+            "edmfO7E.jpg",
+            "YeQz0DW.jpg"
+        ],
+        inputIndex = $(amx.addInputRange(h[0], {
+            title: "壁紙のインデックス",
+            value: 0,
+            min: 0,
+            max: urls.length - 1,
+            change: function(idx) {
+                amx.setWallpaper("https://i.imgur.com/" + urls[idx]);
+            }
+        }));
+    amx.addInputBool(h[0], {
+        title: "自動切り替え",
+        change: function(flag) {
+            if (flag) si = setInterval(function() {
+                var nextIdx = inputIndex.val() + 1;
+                inputIndex.val(nextIdx > urls.length ? 0 : nextIdx);
+            }, 2500);
+            else clearInterval(si);
+        }
     });
     //--------------------------------------------------
 })();
