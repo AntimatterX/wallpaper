@@ -6,13 +6,13 @@
         	return v.length > 0;
         }),
         h = $("<div>").appendTo("body");
-        urls.forEach(function(v){
+       /* urls.forEach(function(v){
         	$("<img>", {
         		      		 crossorigin:"anonymous",
         		src: v
         	}).appendTo(h)
-        });
-        /*amx.addInputRange(h[0], {
+        });*/
+        amx.addInputRange(h[0], {
         	title: "壁紙のインデックス",
         	value: 0,
         	min: 0,
@@ -21,7 +21,7 @@
         		amx.setWallpaper(urls[idx]);
         		alert($("body").css("background-image"));
         	}
-        });*/
+        });
     });
     //--------------------------------------------------
 })();
