@@ -2,7 +2,10 @@
     'use strict';
     //--------------------------------------------------
     var si,
-        h = $("<div>").css("background-color", "rgba(255, 255, 255, 0.5)").appendTo("body"),
+        h = $("<div>").css({
+            display: "inline-block",
+            backgroundColor: "rgba(255, 255, 255, 0.75)"
+        }).appendTo("body"),
         urls = [
             "YXxxhlg.jpg",
             "WjedZgv.jpg",
