@@ -12,7 +12,11 @@
         	min: 0,
         	max: urls.length - 1,
         	change: function(idx){
+        		try {
         		amx.setWallpaper(urls[idx]);
+        	}catch(e){
+        		alert(e);
+        	};
         	}
         });
     });
