@@ -9,6 +9,7 @@
         urls.forEach(function(v){
         	$("<img>", {
         		src: v,
+        		crossorigin: "anonymous"
         	}).appendTo(h);
         });
         /*amx.addInputRange(h[0], {
