@@ -19,10 +19,19 @@
             "nlVt8Ri.jpg",
             "edmfO7E.jpg",
             "YeQz0DW.jpg"
-        ],
-        inputIndex = $(amx.addInputRange(h[0], {
+        ];
+    amx.addInputRange(h[0], {
+        title: "UIの透明度",
+        value: 25,
+        min: 0,
+        max: 100,
+        change: function(v) {
+            h.css("backgroundColor", "rgba(" + amx.getRGB(amx.getCSS(h)).join(", ") + ", " + (1 - (v / 100)) + ")");
+        }
+    });
+    var inputIndex = $(amx.addInputRange(h[0], {
             title: "壁紙のインデックス",
-            value: 0,
+            value: amx.randInt(0, urls.length - 1),
             min: 0,
             max: urls.length - 1,
             change: function(idx) {
