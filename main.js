@@ -4,6 +4,7 @@
     var si,
         h = $("<div>").css({
             display: "inline-block",
+            position: "absolute",
             backgroundColor: "rgba(255, 255, 255, 0.75)"
         }).appendTo("body"),
         urls = [
@@ -42,5 +43,28 @@
             else clearInterval(si);
         }
     });
+    //--------------------------------------------------
+    (function() {
+        // https://9cubed.info/article/jquery/0037
+        $("body").css("overflow", "hidden").add("html").css("height", "100%");
+        var isMoving = false, // 移動中かどうか
+            clickPos, // クリックされた位置
+            pos; // クリックされた時の要素の位置
+        h.on("mousedown", function(e) {
+            if (isMoving) return;
+            isMoving = true;
+            clickPos = [e.screenX, e.screenY];
+            pos = h.position();
+        });
+        h.parent().on("mousemove", function(e) {
+            if (!isMoving) return;
+            h.css("left", (pos.left + e.screenX - clickPos[0]) + "px");
+            h.css("top", (pos.top + e.screenY - clickPos[1]) + "px");
+        });
+        h.on("mouseup", function() {
+            if (!isMoving) return;
+            isMoving = false;
+        });
+    })();
     //--------------------------------------------------
 })();
