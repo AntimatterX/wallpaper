@@ -24,7 +24,7 @@
         })),
         inputInterval = $(amx.addInputRange(h[0], {
             title: "切り替え秒数",
-            value: 2.5,
+            value: 5,
             min: 1,
             max: 10,
             step: 0.5
